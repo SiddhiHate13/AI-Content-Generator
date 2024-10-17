@@ -5,23 +5,23 @@ import { Copy } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface props{
-  aiOutput:string;
+  ai_output:string;
 }
 
-function OutputSection({aiOutput}:props) {
+function OutputSection({ai_output}:props) {
   const editorRef:any=useRef();
 
   useEffect(()=>{
     const editorInstance=editorRef.current.getInstance();
-    editorInstance.setMarkdown(aiOutput);
-  },[aiOutput])
+    editorInstance.setMarkdown(ai_output);
+  },[ai_output])
 
   return (
     <div className='bg-white shadow-lg border rounded-lg'>
       <div className='flex justify-between items-center p-5'>
         <h2 className='font-medium text-lg'>Your Result</h2>
         <Button className='flex gap-2'
-        onClick={()=>navigator.clipboard.writeText(aiOutput)}
+        onClick={()=>navigator.clipboard.writeText(ai_output)}
         ><Copy className='w-4 h-4'/> Copy </Button>
       </div>
       <Editor

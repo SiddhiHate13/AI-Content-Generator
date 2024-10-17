@@ -2,7 +2,7 @@
 import Templates from '@/app/(data)/Templates'
 import { Button } from '@/components/ui/button'
 import { db } from '@/utils/db'
-import { AIOutput } from '@/utils/schema'
+import { ai_output } from '@/utils/schema'
 import { currentUser } from '@clerk/nextjs/server'
 import { desc, eq } from 'drizzle-orm'
 import Image from 'next/image'
@@ -23,8 +23,8 @@ async function History() {
     const user=await currentUser();
 
     {/* @ts-ignore */}
-    const HistoryList:HISTORY[]=await db.select().from(AIOutput).where(eq(AIOutput?.createdBy,user?.primaryEmailAddress?.emailAddress))
-    .orderBy(desc(AIOutput.id))
+    const HistoryList:HISTORY[]=await db.select().from(ai_output).where(eq(ai_output?.createdBy,user?.primaryEmailAddress?.emailAddress))
+    .orderBy(desc(ai_output.id))
     ;
 
     const GetTemplateName=(slug:string)=>{

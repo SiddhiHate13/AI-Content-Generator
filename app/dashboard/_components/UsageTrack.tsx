@@ -1,7 +1,7 @@
 "use client"
 import { Button } from '@/components/ui/button'
 import { db } from '@/utils/db';
-import { AIOutput, UserSubscription } from '@/utils/schema';
+import { ai_output, UserSubscription } from '@/utils/schema';
 import { useUser } from '@clerk/nextjs';
 
 import { eq } from 'drizzle-orm';
@@ -30,7 +30,7 @@ import { UpdateCreditUsageContext } from '@/app/(context)/UpdateCreditUsageConte
 
     const GetData=async()=>{
          {/* @ts-ignore */}
-        const result:HISTORY[]=await db.select().from(AIOutput).where(eq(AIOutput.createdBy,user?.primaryEmailAddress?.emailAddress));
+        const result:HISTORY[]=await db.select().from(ai_output).where(eq(ai_output.createdBy,user?.primaryEmailAddress?.emailAddress));
         
         GetTotalUsage(result)
     }
