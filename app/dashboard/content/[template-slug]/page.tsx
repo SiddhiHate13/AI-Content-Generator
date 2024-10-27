@@ -83,9 +83,9 @@ function CreateNewContent(props: PROPS) {
     }
 
     return (
-        <div className='p-5'>
+        <div className='p-5 bg-gradient-to-tl from-slate-200 to-violet-500'>
             <Link href={"/dashboard"}>
-                <Button> <ArrowLeft /> Back</Button>
+                <Button className='bg-violet-100 text-gray-900 hover:bg-violet-900 hover:text-white'> <ArrowLeft /> Back</Button>
             </Link>
             <div className='grid grid-cols-1 md:grid-cols-3 gap-5 py-5 '>
                 {/* FormSection  */}
